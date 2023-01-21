@@ -126,16 +126,16 @@ class _EditProductScreenState extends State<EditProductScreen> {
                                     fontSize: 20, fontWeight: FontWeight.w400),
                               ),
                               onPressed: () {
-                                String docIds;
-                                Future getdocId() async {
-                                  await FirebaseFirestore.instance
-                                      .collection('product')
-                                      .get()
-                                      .then((snapshot) =>
-                                          snapshot.docs.forEach((document) {
-                                            print(document.reference);
-                                          }));
-                                }
+                                // String docIds;
+                                // Future getdocId() async {
+                                //   await FirebaseFirestore.instance
+                                //       .collection('product')
+                                //       .get()
+                                //       .then((snapshot) =>
+                                //           snapshot.docs.forEach((document) {
+                                //             print(document.reference);
+                                //           }));
+                                // }
                               },
                             ),
                           ),

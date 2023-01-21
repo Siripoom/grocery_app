@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
 import 'package:form_field_validator/form_field_validator.dart';
@@ -66,7 +67,7 @@ class _SigninpageState extends State<Signinpage> {
 
                     //กำหนดลักษณะของปุ่ม
                     decoration: const InputDecoration(
-                      icon: Icon(Icons.email),
+                      icon: Icon(FontAwesomeIcons.envelope),
                       border: UnderlineInputBorder(),
                       labelText: 'Email',
                     ),
@@ -79,7 +80,7 @@ class _SigninpageState extends State<Signinpage> {
                     obscureText: true,
                     controller: passwordController,
                     decoration: const InputDecoration(
-                      icon: Icon(Icons.password),
+                      icon: Icon(FontAwesomeIcons.lock),
                       border: UnderlineInputBorder(),
                       labelText: 'Password',
                     ),
@@ -118,6 +119,13 @@ class _SigninpageState extends State<Signinpage> {
                         ),
                       ),
                     ],
+                  ),
+                  Text(
+                    "ลืมรหัสผ่าน",
+                    style: GoogleFonts.kanit(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        decoration: TextDecoration.underline),
                   )
                 ],
               ))),

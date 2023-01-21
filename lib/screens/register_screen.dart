@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -70,7 +71,7 @@ class _RegisterState extends State<Register> {
                   decoration: const InputDecoration(
                     border: UnderlineInputBorder(),
                     labelText: 'Email',
-                    icon: const Icon(Icons.email),
+                    icon: const Icon(FontAwesomeIcons.envelope),
                     filled: true,
                   ),
                 ),
@@ -89,7 +90,7 @@ class _RegisterState extends State<Register> {
 
                     labelText: 'Password',
                     filled: true,
-                    icon: const Icon(Icons.password),
+                    icon: const Icon(FontAwesomeIcons.lock),
                   ),
                 ),
                 sizedBoxSpace,

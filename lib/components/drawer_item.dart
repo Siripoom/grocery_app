@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grocery_app/screens/cart.dart';
 
@@ -28,15 +29,15 @@ class _DrawerItemState extends State<DrawerItem> {
       child: Column(
         // List item menu of menu drawer
         children: [
-          menuItem(1, "หน้าหลัก", Icons.home_outlined,
+          menuItem(1, "หน้าหลัก", FontAwesomeIcons.houseChimney,
               currentPage == DrawerSection.home ? true : false),
-          menuItem(2, "ข้อมูลของฉัน", Icons.person_outlined,
+          menuItem(2, "ข้อมูลของฉัน", FontAwesomeIcons.user,
               currentPage == DrawerSection.information ? true : false),
-          menuItem(6, "ตะกร้าสินค้า", Icons.shopping_cart_outlined,
+          menuItem(6, "ตะกร้าสินค้า", FontAwesomeIcons.cartShopping,
               currentPage == DrawerSection.cart ? true : false),
-          menuItem(3, "ติดตามสถานะ", Icons.local_shipping_outlined,
+          menuItem(3, "ติดตามสถานะ", FontAwesomeIcons.truck,
               currentPage == DrawerSection.track_status ? true : false),
-          menuItem(4, "ประวัติการสั่งซื้อ", Icons.shopping_basket_outlined,
+          menuItem(4, "ประวัติการสั่งซื้อ", FontAwesomeIcons.clockRotateLeft,
               currentPage == DrawerSection.history ? true : false),
           menuItem(5, "ติดต่อร้านต้า", Icons.contact_support_outlined,
               currentPage == DrawerSection.contactus ? true : false),

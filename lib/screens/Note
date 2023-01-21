@@ -1,0 +1,21 @@
+Main Systems
+    Sign-in
+    Sign-up
+    Shopping cart
+    Manage Product
+    
+
+Admin
+    Product
+     - insert /
+     - update Pending
+     - delete Pending
+    Track-status
+
+Customer
+    Sign-in /
+    Sign-up /
+    Add cart
+    Order
+    Track-status
+    Reject order

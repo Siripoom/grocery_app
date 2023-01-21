@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grocery_app/components/cardproduct.dart';
 
@@ -29,6 +30,12 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
         title: Text("ร้านขายของชำ"),
         titleTextStyle: GoogleFonts.kanit(fontSize: 20),
+        actions: [
+          IconButton(
+            icon: Icon(FontAwesomeIcons.cartShopping),
+            onPressed: (() {}),
+          )
+        ],
       ),
       body: CardProduct(),
       drawer: drawer_chosen(),
