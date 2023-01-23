@@ -12,7 +12,7 @@ class GetUserName extends StatelessWidget {
   Widget build(BuildContext context) {
     CollectionReference users = FirebaseFirestore.instance.collection('member');
     final user = FirebaseAuth.instance.currentUser!;
-    const sizeboxsspace = SizedBox(height: 24);
+    const sizeboxsspace = SizedBox(height: 20);
     return FutureBuilder<DocumentSnapshot>(
       future: users.doc(documentId).get(),
       builder:
@@ -31,15 +31,16 @@ class GetUserName extends StatelessWidget {
           return Column(
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 50,
+                    height: 55,
                     width: 329,
                     child: Card(
                       elevation: 2,
                       child: Center(
                         child: Container(
-                          margin: EdgeInsets.only(left: 10),
+                          //margin: EdgeInsets.only(),
                           child: Text(
                             "ชื่อ : " +
                                 "${data['firstname']} ${data['lastname']}",
@@ -55,11 +56,13 @@ class GetUserName extends StatelessWidget {
               ),
               sizeboxsspace,
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 50,
+                    height: 55,
                     width: 329,
                     child: Card(
+                      elevation: 2,
                       child: Center(
                         child: Container(
                           child: Text(
@@ -75,11 +78,13 @@ class GetUserName extends StatelessWidget {
               ),
               sizeboxsspace,
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 50,
+                    height: 55,
                     width: 329,
                     child: Card(
+                      elevation: 2,
                       child: Center(
                         child: Text(
                           "เบอร์โทร : " + "${data['phone_number']}",
@@ -94,11 +99,13 @@ class GetUserName extends StatelessWidget {
               ),
               sizeboxsspace,
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
                     height: 130,
                     width: 329,
                     child: Card(
+                      elevation: 2,
                       child: Center(
                         child: Container(
                           margin: EdgeInsets.only(left: 10),

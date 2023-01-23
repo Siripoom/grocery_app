@@ -15,7 +15,7 @@ class Contactus extends StatefulWidget {
 }
 
 class _ContactusState extends State<Contactus> {
-  final sizedBoxSpace = SizedBox(height: 24);
+  final sizedBoxSpace = SizedBox(height: 20);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +23,9 @@ class _ContactusState extends State<Contactus> {
         title: Text("ติดต่อร้านค้า"),
         centerTitle: true,
         titleTextStyle: GoogleFonts.kanit(fontSize: 20),
+        backgroundColor: Color.fromRGBO(54, 128, 45, 1.0),
       ),
+      backgroundColor: Color.fromRGBO(248, 248, 250, 1.0),
       body: Container(
         margin: const EdgeInsets.only(left: 20.0, right: 20.0),
         child: Column(
@@ -42,19 +44,21 @@ class _ContactusState extends State<Contactus> {
               child: Column(
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         "ที่อยู่",
                         style: GoogleFonts.kanit(
-                            fontSize: 24, fontWeight: FontWeight.w500),
+                            fontSize: 20, fontWeight: FontWeight.w500),
                       ),
                     ],
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         "123/1 ม.1 ต.หน้าเมือง อ.เมือง จ.ราชบุรี",
-                        style: GoogleFonts.kanit(fontSize: 20),
+                        style: GoogleFonts.kanit(fontSize: 18),
                       ),
                     ],
                   ),
@@ -66,19 +70,21 @@ class _ContactusState extends State<Contactus> {
               child: Column(
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         "เบอร์โทร",
                         style: GoogleFonts.kanit(
-                            fontSize: 24, fontWeight: FontWeight.w500),
+                            fontSize: 20, fontWeight: FontWeight.w500),
                       ),
                     ],
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         "081-123-4567",
-                        style: GoogleFonts.kanit(fontSize: 20),
+                        style: GoogleFonts.kanit(fontSize: 18),
                       ),
                     ],
                   ),
@@ -90,21 +96,23 @@ class _ContactusState extends State<Contactus> {
               child: Column(
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         "ไอดีไลน์",
                         style: GoogleFonts.kanit(
-                          fontSize: 24,
+                          fontSize: 20,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                     ],
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         "081-123-4567",
-                        style: GoogleFonts.kanit(fontSize: 20),
+                        style: GoogleFonts.kanit(fontSize: 18),
                       ),
                     ],
                   ),

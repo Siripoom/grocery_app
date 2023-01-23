@@ -19,3 +19,9 @@ Customer
     Order
     Track-status
     Reject order
+
+
+21/01/2023
+ - Forgot password
+ - color main => backgroundColor: Color.fromRGBO(248, 248, 250, 1.0),
+

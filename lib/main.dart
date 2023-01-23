@@ -17,7 +17,9 @@ class myapp extends StatelessWidget {
     return MaterialApp(
       title: 'Grocery ',
       home: OptionScreen(),
-      theme: ThemeData(primarySwatch: Colors.green),
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
     );
   }
 }
@@ -28,9 +30,26 @@ class OptionScreen extends StatefulWidget {
 }
 
 class _OptionScreenState extends State<OptionScreen> {
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(0, 220);
+    path.quadraticBezierTo(size.width / 4, 160 /*180*/, size.width / 2, 175);
+    path.quadraticBezierTo(3 / 4 * size.width, 190, size.width, 130);
+    path.lineTo(size.width, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
+  }
+
   @override
   Widget build(BuildContext context) {
+    const sizeboxspace = SizedBox(height: 17);
     return Scaffold(
+      backgroundColor: Color.fromRGBO(248, 248, 250, 1.0),
       body: Container(
         margin: const EdgeInsets.only(left: 20.0, right: 20.0),
         child: Column(
@@ -46,9 +65,15 @@ class _OptionScreenState extends State<OptionScreen> {
                 ),
               ),
             ),
+            sizeboxspace,
             SizedBox(
-                width: double.infinity,
+                height: 40,
+                width: 150,
                 child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromRGBO(54, 128, 45, 1.0),
+                  ),
+                  // side: BorderSide(color: Colors.yellow, width: 5),
                   child: Text(
                     'Sign in',
                     style: GoogleFonts.lato(
@@ -65,9 +90,14 @@ class _OptionScreenState extends State<OptionScreen> {
                     );
                   },
                 )),
+            sizeboxspace,
             SizedBox(
-                width: double.infinity,
+                height: 40,
+                width: 150,
                 child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromRGBO(54, 128, 45, 1.0),
+                  ),
                   child: Text(
                     'Sign up',
                     style: GoogleFonts.lato(

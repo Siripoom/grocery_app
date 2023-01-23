@@ -125,44 +125,48 @@ class _InfoPersonalState extends State<InfoPersonal> {
   }
 
   Future signUp(fname, lname, uid, address, phoneN) async {
-    if (formKey.currentState!.validate()) {
-      try {
-        // Initialize firebase
-        WidgetsFlutterBinding.ensureInitialized();
-        await Firebase.initializeApp();
-        // firebase Auth createUser
+    formKey.currentState!.validate();
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: ((context) => Center(
+              child: CircularProgressIndicator(),
+            )));
+    try {
+      // Initialize firebase
+      WidgetsFlutterBinding.ensureInitialized();
+      await Firebase.initializeApp();
+      // firebase Auth createUser
 
-        // write data to firebase
-        final docUser =
-            FirebaseFirestore.instance.collection('member').doc(user.uid);
+      // write data to firebase
+      final docUser =
+          FirebaseFirestore.instance.collection('member').doc(user.uid);
 
-        final json = {
-          //'id': user.uid,
-          'firstname': fname,
-          'lastname': lname,
-          'phone_number': phoneN,
-          'address': address,
-          'datetime': now.toString()
-        };
-        // create document and write data to firebase
-        await docUser.set(json);
-        //Notification Toast
-        Fluttertoast.showToast(
-            msg: "สมัครสมาชิกสำเร็จ", gravity: ToastGravity.CENTER);
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return HomeScreen(); //เชื่อมโยงหน้าแอพ
-            },
-          ),
-        );
-      } on FirebaseAuthException catch (e) {
-        print(e.message);
-      }
-
+      final json = {
+        //'id': user.uid,
+        'firstname': fname,
+        'lastname': lname,
+        'phone_number': phoneN,
+        'address': address,
+        'datetime': now.toString()
+      };
       // create document and write data to firebase
-
+      await docUser.set(json);
+      //Notification Toast
+      Fluttertoast.showToast(
+          msg: "สมัครสมาชิกสำเร็จ", fontSize: 24, gravity: ToastGravity.CENTER);
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return HomeScreen(); //เชื่อมโยงหน้าแอพ
+          },
+        ),
+      );
+    } on FirebaseAuthException catch (e) {
+      print(e.message);
     }
+
+    // create document and write data to firebase
   }
 }

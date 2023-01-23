@@ -26,7 +26,7 @@ class _Drawer_headerState extends State<Drawer_header> {
     CollectionReference users = FirebaseFirestore.instance.collection('member');
 
     return Container(
-      color: Colors.green,
+      color: Color.fromRGBO(54, 128, 45, 1.0),
       width: double.infinity,
       height: 200,
       padding: EdgeInsets.only(top: 20.0),

@@ -27,6 +27,7 @@ class _DashboardState extends State<Dashboard> {
         centerTitle: true,
         title: Text("Dashboard"),
         titleTextStyle: GoogleFonts.kanit(fontSize: 20),
+        backgroundColor: Color.fromRGBO(54, 128, 45, 1.0),
       ),
       body: Container(
         //child: SingleChildScrollView(
@@ -64,6 +65,9 @@ class _DashboardState extends State<Dashboard> {
                     Container(
                       height: 40,
                       child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromRGBO(54, 128, 45, 1.0),
+                        ),
                         child: Text(
                           "ที่ต้องจัดส่ง",
                           style: GoogleFonts.kanit(
@@ -98,18 +102,19 @@ class _DashboardState extends State<Dashboard> {
             Container(
               decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.green,
+                    color: Color.fromRGBO(54, 128, 45, 1.0),
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20))),
             ),
-            sizeboxspace,
-            Column(
-              children: [],
-            ),
+            // sizeboxspace,
+            // Column(
+            //   children: [],
+            // ),
             sizeboxspace,
             ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
                 minimumSize: Size.fromHeight(50),
+                backgroundColor: Color.fromRGBO(54, 128, 45, 1.0),
               ),
               icon: Icon(
                 Icons.add_circle,

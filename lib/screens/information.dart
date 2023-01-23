@@ -35,7 +35,9 @@ class _InformationState extends State<Information> {
         centerTitle: true,
         title: Text("ข้อมูลของฉัน"),
         titleTextStyle: GoogleFonts.kanit(fontSize: 20),
+        backgroundColor: Color.fromRGBO(54, 128, 45, 1.0),
       ),
+      backgroundColor: Color.fromRGBO(248, 248, 250, 1.0),
       drawer: drawer_chosen(),
       body: Container(
         margin: const EdgeInsets.only(left: 20.0, right: 20.0),
@@ -47,6 +49,7 @@ class _InformationState extends State<Information> {
             ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
                 minimumSize: Size.fromHeight(50),
+                backgroundColor: Color.fromRGBO(54, 128, 45, 1.0),
               ),
               icon: Icon(
                 Icons.arrow_back,

@@ -93,7 +93,11 @@ class _DrawerItemState extends State<DrawerItem> {
           child: Row(
             children: [
               Expanded(
-                child: Icon(icon, size: 28, color: Colors.black),
+                child: Icon(
+                  icon,
+                  size: 28,
+                  color: Color.fromRGBO(54, 128, 45, 1.0),
+                ),
               ),
               Expanded(
                 flex: 3,

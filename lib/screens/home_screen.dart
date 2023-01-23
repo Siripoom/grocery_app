@@ -15,6 +15,8 @@ import 'package:grocery_app/screens/login_screen.dart';
 import 'package:grocery_app/screens/register_screen.dart';
 import 'package:grocery_app/screens/track_status.dart';
 
+import 'cart.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -33,10 +35,21 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
             icon: Icon(FontAwesomeIcons.cartShopping),
-            onPressed: (() {}),
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return ShoppingCart(); //เชื่อมโยงหน้าแอพ
+                  },
+                ),
+              );
+            },
           )
         ],
+        backgroundColor: Color.fromRGBO(54, 128, 45, 1.0),
       ),
+      backgroundColor: Color.fromRGBO(248, 248, 250, 1.0),
       body: CardProduct(),
       drawer: drawer_chosen(),
     );
