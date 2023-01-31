@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class GetProduct extends StatelessWidget {
@@ -18,7 +20,7 @@ class GetProduct extends StatelessWidget {
     const sizeboxsspace = SizedBox(height: 24);
     PlatformFile? pickedFile;
     final storageRef = FirebaseStorage.instance.ref();
-
+    int number = 0;
     return FutureBuilder<DocumentSnapshot>(
       future: products.doc(documentId).get(),
       builder:
@@ -72,6 +74,24 @@ class GetProduct extends StatelessWidget {
                                 textAlign: TextAlign.start,
                                 style: GoogleFonts.lato(
                                     fontSize: 20, fontWeight: FontWeight.w700)),
+                            // sizeboxsspace,
+                            // Row(
+                            //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            //   children: [
+                            //     FloatingActionButton(
+                            //       child: const Icon(FontAwesomeIcons.minus),
+                            //       onPressed: () {},
+                            //     ),
+                            //     Text(
+                            //       '$number',
+                            //       style: GoogleFonts.lato(fontSize: 30),
+                            //     ),
+                            //     FloatingActionButton(
+                            //       child: const Icon(FontAwesomeIcons.plus),
+                            //       onPressed: () {},
+                            //     ),
+                            //   ],
+                            // ),
                             sizeboxsspace,
                             ElevatedButton(
                               child: Text(
@@ -80,7 +100,7 @@ class GetProduct extends StatelessWidget {
                                     fontSize: 18,
                                     fontWeight: FontWeight.normal),
                               ),
-                              onPressed: () => Navigator.pop(context),
+                              onPressed: addtoCart,
                             ),
                             sizeboxsspace,
                           ],
@@ -121,5 +141,27 @@ class GetProduct extends StatelessWidget {
         return CircularProgressIndicator();
       },
     );
+  }
+
+  Future addtoCart() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp();
+    // firebase Auth createUser
+
+    // write data to firebase
+    final docUser =
+        FirebaseFirestore.instance.collection('cart').doc(documentId);
+
+    final json = {
+      //'id': user.uid,
+      // 'productname': productname,
+      // 'price': price,
+      // 'amount': amount,
+      // 'detail': detail,
+      // 'datetime': now.toString(),
+      // 'image': await ref.getDownloadURL()
+    };
+    // create document and write data to firebase
+    // await docUser.set(json);
   }
 }

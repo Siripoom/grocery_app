@@ -63,7 +63,7 @@ class _AddProductState extends State<AddProduct> {
         centerTitle: true,
         title: Text("เพิ่มสินค้า"),
         titleTextStyle: GoogleFonts.kanit(fontSize: 20),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Color.fromRGBO(54, 128, 45, 1.0),
         leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () => Navigator.push(

@@ -154,15 +154,14 @@ class _SigninpageState extends State<Signinpage> {
   }
 
   Future signIn() async {
-    formKey.currentState!.validate();
-    showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: ((context) => Center(
-              child: CircularProgressIndicator(),
-            )));
-
     try {
+      formKey.currentState!.validate();
+      // showDialog(
+      //     context: context,
+      //     barrierDismissible: false,
+      //     builder: ((context) => Center(
+      //           child: CircularProgressIndicator(),
+      //         )));
       WidgetsFlutterBinding.ensureInitialized();
       await Firebase.initializeApp();
       await FirebaseAuth.instance.signInWithEmailAndPassword(

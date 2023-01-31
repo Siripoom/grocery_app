@@ -5,13 +5,11 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../models/edit_show_product.dart';
+import '../components/edit_show_product.dart';
 import '../models/list_product.dart';
 import 'dashboard.dart';
 
 class EditProductScreen extends StatefulWidget {
-  const EditProductScreen({super.key});
-
   @override
   State<EditProductScreen> createState() => _EditProductScreenState();
 }
@@ -31,6 +29,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
       appBar: AppBar(
         title: Text("แก้ไขสินค้า"),
         titleTextStyle: GoogleFonts.kanit(fontSize: 20),
+        backgroundColor: Color.fromRGBO(54, 128, 45, 1.0),
         centerTitle: true,
         leading: IconButton(
             icon: Icon(Icons.arrow_back),
@@ -52,7 +51,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                   margin: EdgeInsets.all(20),
                   child: Column(
                     children: [
-                      ShowsignleProduct('EHX20BbPLWDSlqtpY17q'),
+                      ShowsignleProduct('d'),
                       Container(
                         decoration: BoxDecoration(
                             border: Border.all(

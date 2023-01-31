@@ -23,6 +23,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
         titleTextStyle: GoogleFonts.kanit(
           fontSize: 20,
         ),
+        backgroundColor: Color.fromRGBO(54, 128, 45, 1.0),
       ),
       drawer: Drawer(
         child: SingleChildScrollView(
