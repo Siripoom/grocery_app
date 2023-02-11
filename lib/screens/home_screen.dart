@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget drawer_chosen() {
-    if (user.uid != '2SywMWwl4DenaxBCk5fQPOSv6vE2') {
+    if (user.uid != 'JdBR70izcuOMgKDbyrbXXUINLoE2') {
       return Drawer(
         child: SingleChildScrollView(
           child: Container(

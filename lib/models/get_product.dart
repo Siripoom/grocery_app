@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -21,6 +22,7 @@ class GetProduct extends StatelessWidget {
     PlatformFile? pickedFile;
     final storageRef = FirebaseStorage.instance.ref();
     int number = 0;
+
     return FutureBuilder<DocumentSnapshot>(
       future: products.doc(documentId).get(),
       builder:
@@ -37,12 +39,15 @@ class GetProduct extends StatelessWidget {
           Map<String, dynamic> data =
               snapshot.data!.data() as Map<String, dynamic>;
           // String img =  ${data['image']};
+          var productname = "${data['productname']}";
+          int price = int.parse("${data['price']}");
+          var image = '${data['image']}';
           return Center(
               child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: 150,
+                height: 170,
                 width: 175,
                 child: InkWell(
                   onTap: () {
@@ -61,16 +66,17 @@ class GetProduct extends StatelessWidget {
                           children: [
                             sizeboxsspace,
                             Image(
-                              image: NetworkImage('${data['image']}'),
+                              image: NetworkImage(image),
                               height: 300,
                               width: 350,
                             ),
                             sizeboxsspace,
                             Text(
-                                "${data['productname']}" +
+                                productname +
                                     "      " +
                                     "ราคา " +
-                                    "${data['price']} บาท", // โชวข้อมูลสินค้า พร้อมรูป , และเมื่อผู้ใช้กดที่สินค้าจะแสดง Bottomsheet พร้อมกับรายละเอียดสินค้า
+                                    '$price' +
+                                    " บาท", // โชวข้อมูลสินค้า พร้อมรูป , และเมื่อผู้ใช้กดที่สินค้าจะแสดง Bottomsheet พร้อมกับรายละเอียดสินค้า
                                 textAlign: TextAlign.start,
                                 style: GoogleFonts.lato(
                                     fontSize: 20, fontWeight: FontWeight.w700)),
@@ -100,7 +106,10 @@ class GetProduct extends StatelessWidget {
                                     fontSize: 18,
                                     fontWeight: FontWeight.normal),
                               ),
-                              onPressed: addtoCart,
+                              onPressed: () {
+                                addtoCart(productname, price, image);
+                                Navigator.pop(context);
+                              },
                             ),
                             sizeboxsspace,
                           ],
@@ -143,25 +152,35 @@ class GetProduct extends StatelessWidget {
     );
   }
 
-  Future addtoCart() async {
-    WidgetsFlutterBinding.ensureInitialized();
-    await Firebase.initializeApp();
-    // firebase Auth createUser
+  Future addtoCart(productname, price, image) async {
+    try {
+      WidgetsFlutterBinding.ensureInitialized();
+      await Firebase.initializeApp();
+      final user = FirebaseAuth.instance.currentUser;
 
-    // write data to firebase
-    final docUser =
-        FirebaseFirestore.instance.collection('cart').doc(documentId);
+      // firebase Auth createUser
 
-    final json = {
-      //'id': user.uid,
-      // 'productname': productname,
-      // 'price': price,
-      // 'amount': amount,
-      // 'detail': detail,
-      // 'datetime': now.toString(),
-      // 'image': await ref.getDownloadURL()
-    };
-    // create document and write data to firebase
-    // await docUser.set(json);
+      // write data to firebase
+      final addcart = FirebaseFirestore.instance.collection('cart').doc();
+
+      final json = {
+        'member': user?.uid,
+        'product_Id': documentId,
+        'product_name': productname,
+        'price': price,
+        'image': image,
+        // 'price': price,
+        // 'amount': amount,
+        // 'detail': detail,
+        // 'datetime': now.toString(),
+        // 'image': await ref.getDownloadURL()
+      };
+      // create document and write data to firebase
+      await addcart.set(json);
+      Fluttertoast.showToast(
+          msg: "เพิ่มลงตะกร้าแล้ว", gravity: ToastGravity.CENTER);
+    } on FirebaseException catch (e) {
+      print(e.message);
+    }
   }
 }

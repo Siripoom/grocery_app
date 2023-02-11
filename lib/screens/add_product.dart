@@ -188,8 +188,9 @@ class _AddProductState extends State<AddProduct> {
                   ),
                   onPressed: () {
                     final fproductname = produnctname.text;
-                    final fprice = price.text;
-                    final famount = amount.text;
+                    int fprice = int.parse(
+                        price.text); //Convert String to int  int.parse()
+                    int famount = int.parse(amount.text);
                     final fdetail = detail.text;
 
                     addProduct(
@@ -221,10 +222,9 @@ class _AddProductState extends State<AddProduct> {
         // Initialize firebase
         WidgetsFlutterBinding.ensureInitialized();
         await Firebase.initializeApp();
-        // firebase Auth createUser
 
         // write data to firebase
-        final docUser = FirebaseFirestore.instance.collection('product').doc();
+        final product = FirebaseFirestore.instance.collection('product').doc();
 
         final json = {
           //'id': user.uid,
@@ -236,7 +236,7 @@ class _AddProductState extends State<AddProduct> {
           'image': await ref.getDownloadURL()
         };
         // create document and write data to firebase
-        await docUser.set(json);
+        await product.set(json);
 
         Fluttertoast.showToast(
             msg: "เพิ่มสินค้าสำเร็จ", gravity: ToastGravity.CENTER);
